@@ -1,0 +1,102 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import profile from "../assets/profile.png";
+
+const projects = [
+  {
+    title: "Sankhya",
+    desc: "Personalizações, Addons, Dashboards",
+    link: "https://www.sankhya.com.br/",
+  },
+  {
+    title: "Controle de gastos",
+    desc: "Projeto pessoal de controle de gastos",
+    link: "https://github.com/victoroliveira13/controle-gastos",
+  }
+];
+---
+
+<Layout title="Victor Oliveira — Dev Portfolio">
+  <canvas id="bg-canvas"></canvas>
+
+  <nav class="nav">
+    <a class="logo" href="#hero">Victor Oliveira</a>
+  </nav>
+
+  <nav class="side-nav" aria-label="Navegação de seções">
+    <a href="#hero" class="side-nav-link" data-section="hero" aria-label="Início">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z" /></svg>
+    </a>
+    <a href="#about" class="side-nav-link" data-section="about" aria-label="Sobre">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7" /></svg>
+    </a>
+    <a href="#projects" class="side-nav-link" data-section="projects" aria-label="Projetos">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>
+    </a>
+    <a href="#contact" class="side-nav-link" data-section="contact" aria-label="Contato">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m4 7 8 6 8-6" /></svg>
+    </a>
+  </nav>
+
+  <section id="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Desenvolvedor de Software</p>
+      <h1 class="title">Transformo <span>ideias</span> em <span>soluções</span>.</h1>
+      <p class="subtitle">
+        Construo, produtos digitais que te atendem, de ponta a ponta.
+      </p>
+    </div>
+    <div class="hero-photo-frame">
+      <div class="hero-blob"></div>
+      <div class="hero-photo">
+        <Image src={profile} alt="Foto de perfil" width={640} height={640} />
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">Sobre mim</h2>
+    <p>
+      Tenho anos de experiência entregando soluções robustas e
+      escaláveis em Java e microsserviços, resolvendo desafios de integração
+      e arquitetura distribuída — sempre com foco em performance e resultado
+      real para quem precisa.
+    </p>
+    <div class="stack">
+      <span>Sites</span>
+      <span>Aplicativos</span>
+      <span>Sistemas</span>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title">Projetos</h2>
+    <div class="projects-grid">
+      {
+        projects.map((p) => (
+          <div class="project-card">
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
+            <a href={p.link} target="_blank" rel="noopener noreferrer">
+              Ver mais →
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Vamos conversar</h2>
+    <p>Oque posso fazer por você?</p>
+    <div class="contact-links">
+      <a href="mailto:victor12321@hotmail.com.br">Email</a>
+      <a href="https://linkedin.com/in/victoroliveira13" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>© {new Date().getFullYear()} Victor Oliveira. Feito com Astro + Three.js.</footer>
+
+  <script src="../scripts/scene.ts"></script>
+</Layout>
