@@ -60,8 +60,8 @@ function makeRadialTexture(inner: string, outer: string, size = 256) {
   return new THREE.CanvasTexture(canvas);
 }
 
-const moonPhotoTexture = new THREE.TextureLoader().load("/textures/moon.png");
-const sunPhotoTexture = new THREE.TextureLoader().load("/textures/sun.png");
+const moonPhotoTexture = new THREE.TextureLoader().load(`${import.meta.env.BASE_URL}textures/moon.png`);
+const sunPhotoTexture = new THREE.TextureLoader().load(`${import.meta.env.BASE_URL}textures/sun.png`);
 
 // Sun: real NASA/SDO photo sprite (its corona is baked in) + a touch of extra glow
 const sunGroup = new THREE.Group();
