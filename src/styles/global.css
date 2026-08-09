@@ -168,7 +168,9 @@ section {
 .hero-photo-frame {
   position: absolute;
   top: 50%;
-  right: max(2rem, calc((100% - var(--maxw)) / 2 + 1rem));
+  /* 6.5rem clears the fixed side-nav (right offset + its own width) so the
+     photo never sits behind it on laptop-width viewports. */
+  right: max(6.5rem, calc((100% - var(--maxw)) / 2 + 1rem));
   transform: translateY(-50%);
   width: min(34vw, 410px);
   aspect-ratio: 1 / 1;
